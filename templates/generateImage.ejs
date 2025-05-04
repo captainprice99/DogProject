@@ -10,19 +10,19 @@
 <body>
     <h3>Click the following button to generate an image of a dog!</h3>
     <button type="button" id="Picture" onclick="downloadDogImage()">Generate!</button>
-    <img src="needstobefilled" id="Image" height="400" width="300" alt="dogImage"><br>
+    <br>
+    <br>
+    <img src="needstobefilled" id="Image" alt="dogImage"><br>
     <br>
     <a href="/">HOME</a>
     <script>
         async function downloadDogImage() {
             let url = `https://dog.ceo/api/breeds/image/random`;
-            let response = await fetch(catImageUrl)
-            let { message, status } = await response.json;
+            let response = await fetch(url)
+            let { message, status } = await response.json();
             let img = document.getElementById("Image");
             img.src = message;
         }
-
-
     </script>
 </body>
 
