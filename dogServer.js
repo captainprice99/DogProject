@@ -7,6 +7,8 @@ const fs = require("fs");
 process.stdin.setEncoding("utf8");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(__dirname));
+
 
 
 
