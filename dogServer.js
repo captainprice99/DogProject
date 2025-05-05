@@ -70,3 +70,19 @@ app.get("/", (request, response) => {
 app.get("/dogGenerator", (request, response)=>{
     response.render("generateImage.ejs");
 })
+
+
+app.get("/dogVoting", (request, response)=>{
+    response.render("VotingPage.ejs");
+})
+
+app.post("/dogVoting", (request, response)=>{
+})
+
+// need ejs files to display the leaderboard of dogs w/ data taken from mongodb
+
+// app.get("/dogTable", (request, response)=>{
+// })
+
+// app.post("/dogTable", (request, response)=>{
+// })

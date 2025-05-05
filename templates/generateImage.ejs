@@ -19,7 +19,7 @@
         async function downloadDogImage() {
             let url = `https://dog.ceo/api/breeds/image/random`;
             let response = await fetch(url)
-            let { message, status } = await response.json();
+            let {message, status} = await response.json();
             let img = document.getElementById("Image");
             img.src = message;
         }
