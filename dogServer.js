@@ -83,8 +83,20 @@ app.post("/dogVoting", (request, response)=>{
 
 // need ejs files to display the leaderboard of dogs w/ data taken from mongodb
 
-// app.get("/dogTable", (request, response)=>{
-// })
+app.post("/dogVoting", (req, res) => {
+  const { name, breed } = req.body;
+
+  (async () => {
+    await collection.insertOne({
+      name,
+      breed,
+    });
+    res.redirect("/dogTable");
+  })().catch(e => {
+    console.error(e);
+    res.status(500).send("Error");
+  });
+});
 
 // app.post("/dogTable", (request, response)=>{
 // })

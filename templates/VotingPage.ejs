@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Result</title>
+    <link rel="stylesheet" href="style.css"> 
+
+</head>
+
+<body>
+    <h1>The Doggo Page</h1>
+    <form action="/dogVoting" id="form" method="POST">
+      <div>
+        <label for="name">Your name:</label>
+        <input type="text" id="name" name="name" class="medbox" required>
+        <br><br>
+        Choose your favorite breed?<br><br>
+  
+        <label>
+          <input type="radio" name="breed" value="Labrador" required>
+          Labrador
+        </label><br><br>
+
+        <label>
+          <input type="radio" name="breed" value="German Shepherd">
+          German Shepherd
+        </label><br><br>
+        <label>
+          <input type="radio" name="breed" value="Pug">
+          Pug
+        </label><br><br><label>
+          <input type="radio" name="breed" value="Husky">
+          Husky
+        </label><br><br>
+          <label>
+          <input type="radio" name="breed" value="Beagle">
+          Beagle
+        </label><br><br>
+        <label>
+          <input type="radio" name="breed" value="Bulldog">
+          Bulldog
+        </label><br><br>
+        <label>
+          <input type="radio" name="breed" value="Golden Retriever">
+          Golden Retriever
+        </label><br><br>
+      </div>
+
+      <input type="reset" value="Clear Form">
+      <input type="submit" value="Submit Information">
+    </form>
+  </body>
+  
+
+</html>
