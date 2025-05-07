@@ -78,8 +78,6 @@ app.get("/dogVoting", (request, response)=>{
     response.render("VotingPage.ejs");
 })
 
-app.post("/dogVoting", (request, response)=>{
-})
 
 // need ejs files to display the leaderboard of dogs w/ data taken from mongodb
 
