@@ -1,16 +1,16 @@
 # DogProject
-Submitted by: Arnav Doshi (directory id: adoshi14) 
+__Submitted by:__ Arnav Doshi (directory id: adoshi14) 
 <br>
-Group Members: Arnav Doshi (adoshi14), Arnav Whig (INSERT DIRECTORY ID HERE)
+__Group Members:__ Arnav Doshi (adoshi14), Arnav Whig (INSERT DIRECTORY ID HERE)
 <br>
-App Description: Allows user to see random images of cute dogs and vote for their favorite 
+__App Description:__ Allows user to see random images of cute dogs and vote for their favorite 
 dog breed. Voting data is stored in MongoDB, which can then be retrieved later to see the current
 top voted dog. 
 <br>
-Youtube Vido Link: INSERT LINK HERE
+__Youtube Vido Link:__ INSERT LINK HERE
 <br>
-APIs: Dog API (https://dog.ceo/dog-api/)
+__APIs:__ Dog API (https://dog.ceo/dog-api/)
 <br>
-Contact Email: adoshi14@terpmail.umd.edu
+__Contact Email:__ adoshi14@terpmail.umd.edu
 <br>
-Deployed App Link: INSERT LINK HERE
+__Deployed App Link:__ INSERT LINK HERE
