@@ -11,6 +11,7 @@ app.use(express.static(__dirname));
 
 
 
+const BREEDS=["Labrador","German Shepherd","Pug","Husky","Beagle","Bulldog","Golden Retriever"];
 
 
 app.listen(Number(process.argv[2]));
@@ -79,6 +80,7 @@ app.get("/dogVoting", (request, response)=>{
 })
 
 
+
 // need ejs files to display the leaderboard of dogs w/ data taken from mongodb
 
 app.post("/dogVoting", (req, res) => {
@@ -89,12 +91,18 @@ app.post("/dogVoting", (req, res) => {
       name,
       breed,
     });
-    res.redirect("/dogTable");
+    res.redirect("/ProcessVotingPage");
   })().catch(e => {
     console.error(e);
     res.status(500).send("Error");
   });
 });
 
-// app.post("/dogTable", (request, response)=>{
-// })
+app.get("/ProcessVotingPage", (req, res) => {
+  const total = {};
+
+  Promise.all(
+    BREEDS.map(breed =>collection.countDocuments({ breed }).then(count => (total[breed] = count)))).then(() => {
+    res.render("ProcessVotingPage",{total});
+  });
+});

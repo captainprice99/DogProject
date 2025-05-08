@@ -1,1 +1,22 @@
 <!-- leaderboard -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Leaderboard</h1>
+  <table>
+    <tr><th>Breed</th><th>Votes</th></tr>
+    <% for (let breed in total) { %>
+      <tr>
+        <td><%= breed %></td>
+        <td><%= total[breed] %></td>
+      </tr>
+    <% } %>
+  </table>
+</body>
+</html>
