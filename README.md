@@ -1,7 +1,7 @@
 # DogProject
 __Submitted by:__ Arnav Doshi (directory id: adoshi14) 
 <br><br>
-__Group Members:__ Arnav Doshi (adoshi14), Arnav Whig (INSERT DIRECTORY ID HERE)
+__Group Members:__ Arnav Doshi (adoshi14), Arnav Whig (awhig)
 <br><br>
 __App Description:__ Allows user to see random images of cute dogs and vote for their favorite 
 dog breed. Voting data is stored in MongoDB, which can then be retrieved later to see the current

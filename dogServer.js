@@ -80,8 +80,7 @@ app.get("/dogVoting", (request, response)=>{
 })
 
 // need ejs files to display the leaderboard of dogs w/ data taken from mongodb
-//form doesn't record the name of the person when person submits. 
-//Table is not centered in leadboard page, try making your own css file
+
 
 app.post("/dogVoting", async (req, res) => {
   const { name,breed } = req.body;
