@@ -11,7 +11,7 @@ app.use(express.static(__dirname));
 
 
 
-const BREEDS=["Labrador","German Shepherd","Pug","Husky","Beagle","Bulldog","Golden Retriever"];
+const breeds =["Labrador","German Shepherd","Pug","Husky","Beagle","Bulldog","Golden Retriever"];
 
 
 app.listen(Number(process.argv[2]));
@@ -79,8 +79,6 @@ app.get("/dogVoting", (request, response)=>{
     response.render("VotingPage.ejs");
 })
 
-
-
 // need ejs files to display the leaderboard of dogs w/ data taken from mongodb
 //form doesn't record the name of the person when person submits. 
 //Table is not centered in leadboard page, try making your own css file
@@ -88,13 +86,16 @@ app.get("/dogVoting", (request, response)=>{
 app.post("/dogVoting", async (req, res) => {
   const { name,breed } = req.body;
   await collection.updateOne({breed},{$inc:{votes:1} },{upsert:true});
-  res.redirect("/ProcessVotingPage");
-  
+  res.redirect("/dogTable");
+
 });
 
-app.get("/ProcessVotingPage", async (req, res) => {
+app.get("/dogTable", async (req, res) => {
   const allDogs=await collection.find({}).toArray();
   const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`).join("");
+  // const filter = {};
+  // cursor = collection.find(filter);
+  // result = await cursor.toArray();
   res.render("ProcessVotingPage", { table });
 
 });
