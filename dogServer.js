@@ -85,21 +85,14 @@ app.get("/dogVoting", (request, response)=>{
 
 app.post("/dogVoting", async (req, res) => {
   const { name,breed } = req.body;
-  try {
-    await collection.updateOne({breed},{$inc:{votes:1} },{upsert:true});
-    res.redirect("/ProcessVotingPage");
-  } catch (e) {
-    console.error(e);
-    res.status(500).send("error");
-  }
+  await collection.updateOne({breed},{$inc:{votes:1} },{upsert:true});
+  res.redirect("/ProcessVotingPage");
+  
 });
 
 app.get("/ProcessVotingPage", async (req, res) => {
-  try {
-    const allDogs=await collection.find({}).toArray();
-    const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`);
-    res.render("ProcessVotingPage", { table });
- } catch (e) {
-    console.error(e);
- }
+  const allDogs=await collection.find({}).toArray();
+  const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`);
+  res.render("ProcessVotingPage", { table });
+
 });
