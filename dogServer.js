@@ -94,7 +94,7 @@ app.post("/dogVoting", async (req, res) => {
 
 app.get("/ProcessVotingPage", async (req, res) => {
   const allDogs=await collection.find({}).toArray();
-  const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`);
+  const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`).join("");
   res.render("ProcessVotingPage", { table });
 
 });
