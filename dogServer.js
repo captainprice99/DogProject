@@ -83,26 +83,23 @@ app.get("/dogVoting", (request, response)=>{
 
 // need ejs files to display the leaderboard of dogs w/ data taken from mongodb
 
-app.post("/dogVoting", (req, res) => {
-  const { name, breed } = req.body;
-
-  (async () => {
-    await collection.insertOne({
-      name,
-      breed,
-    });
+app.post("/dogVoting", async (req, res) => {
+  const { name,breed } = req.body;
+  try {
+    await collection.updateOne({breed},{$inc:{votes:1} },{upsert:true});
     res.redirect("/ProcessVotingPage");
-  })().catch(e => {
+  } catch (e) {
     console.error(e);
-    res.status(500).send("Error");
-  });
+    res.status(500).send("error");
+  }
 });
 
-app.get("/ProcessVotingPage", (req, res) => {
-  const total = {};
-
-  Promise.all(
-    BREEDS.map(breed =>collection.countDocuments({ breed }).then(count => (total[breed] = count)))).then(() => {
-    res.render("ProcessVotingPage",{total});
-  });
+app.get("/ProcessVotingPage", async (req, res) => {
+  try {
+    const allDogs=await collection.find({}).toArray();
+    const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`);
+    res.render("ProcessVotingPage", { table });
+ } catch (e) {
+    console.error(e);
+ }
 });

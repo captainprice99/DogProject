@@ -11,12 +11,7 @@
   <h1>Leaderboard</h1>
   <table>
     <tr><th>Breed</th><th>Votes</th></tr>
-    <% for (let breed in total) { %>
-      <tr>
-        <td><%= breed %></td>
-        <td><%= total[breed] %></td>
-      </tr>
-    <% } %>
+    <%- table %>
   </table>
 </body>
 </html>
