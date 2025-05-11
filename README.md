@@ -4,8 +4,7 @@ __Submitted by:__ Arnav Doshi (directory id: adoshi14)
 __Group Members:__ Arnav Doshi (adoshi14), Arnav Whig (awhig)
 <br><br>
 __App Description:__ Allows user to see random images of cute dogs and vote for their favorite 
-dog breed. Voting data is stored in MongoDB, which can then be retrieved later to see the current
-top voted dog. 
+dog breed. Voting data is stored in MongoDB, which can then be retrieved later to see the current leaderboard of votes for each dog. 
 <br><br>
 __Youtube Vido Link:__ INSERT LINK HERE
 <br><br>
