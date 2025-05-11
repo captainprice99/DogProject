@@ -9,8 +9,9 @@ body{
     font-size: 1.4rem;
     font-family: "Viga", sans-serif;
 }
-#tab{
-    margin-left: 620px;
+table{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #tab td {
