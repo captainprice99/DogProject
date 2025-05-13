@@ -8,6 +8,9 @@ process.stdin.setEncoding("utf8");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(__dirname));
+const router = express.Router();
+app.use("/", router);
+
 
 
 
@@ -66,11 +69,11 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "templates"));
 
 
-app.get("/", (request, response) => {
+router.get("/", (request, response) => {
   response.render("index");
 });
 
-app.get("/dogGenerator", (request, response)=>{
+router.get("/dogGenerator", (request, response)=>{
     response.render("generateImage.ejs");
 })
 
@@ -78,9 +81,6 @@ app.get("/dogGenerator", (request, response)=>{
 app.get("/dogVoting", (request, response)=>{
     response.render("VotingPage.ejs");
 })
-
-// need ejs files to display the leaderboard of dogs w/ data taken from mongodb
-
 
 app.post("/dogVoting", async (req, res) => {
   const { name,breed } = req.body;
