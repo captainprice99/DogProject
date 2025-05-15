@@ -2,7 +2,7 @@ const http = require("http");
 const path = require("path");
 const express = require("express"); 
 const app = express(); 
-const portNumber = process.env.PORT || 3000;;
+const portNumber = parseInt(process.env.PORT, 10) || 3000;
 const fs = require("fs");
 process.stdin.setEncoding("utf8");
 const bodyParser = require("body-parser");
@@ -17,32 +17,35 @@ app.use("/", router);
 const breeds =["Labrador","German Shepherd","Pug","Husky","Beagle","Bulldog","Golden Retriever"];
 
 
-app.listen(Number(process.argv[2]));
+// app.listen(Number(process.argv[2]));
 
-if (process.argv.length != 3) {
-  process.stdout.write(`Usage dogServer.js portNumber`);
-  process.exit(0);
-}
+// if (process.argv.length != 3) {
+//   process.stdout.write(`Usage dogServer.js portNumber`);
+//   process.exit(0);
+// }
 
 
-process.stdout.write(`Web server started and running at http://localhost:${portNumber} \n`);
-const prompt = "Stop to shutdown the server: ";
-process.stdout.write(prompt);
-process.stdin.on("readable", function () {
-  const dataInput = process.stdin.read();
-  if (dataInput !== null) {
-    const command = dataInput.trim();
-      if(command === "stop") {
-      process.stdout.write("Shutting down the server\n");
-      process.exit(0);
-    } else {
-      process.stdout.write("Invalid command: " + command + "\n");
-    }
-    process.stdout.write(prompt);
-    process.stdin.resume();
-  }
+// process.stdout.write(`Web server started and running at http://localhost:${portNumber} \n`);
+// const prompt = "Stop to shutdown the server: ";
+// process.stdout.write(prompt);
+// process.stdin.on("readable", function () {
+//   const dataInput = process.stdin.read();
+//   if (dataInput !== null) {
+//     const command = dataInput.trim();
+    //   if(command === "stop") {
+    //   // process.stdout.write("Shutting down the server\n");
+    //   process.exit(0);
+    // } else 
+    // {
+    //   process.stdout.write("Invalid command: " + command + "\n");
+    // }
+    // process.stdout.write(prompt);
+    // process.stdin.resume();
+//   }
+// });
+app.listen(portNumber, () => {
+    console.log(`Web server started and running at http://localhost:${portNumber}`);
 });
-
 
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require("mongodb");
