@@ -12,4 +12,4 @@ __APIs:__ Dog API (https://dog.ceo/dog-api/)
 <br><br>
 __Contact Email:__ adoshi14@terpmail.umd.edu
 <br><br>
-__Deployed App Link:__ INSERT LINK HERE
+__Deployed App Link:__ (https://dogproject-trgw.onrender.com)
