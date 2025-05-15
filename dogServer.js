@@ -2,7 +2,7 @@ const http = require("http");
 const path = require("path");
 const express = require("express"); 
 const app = express(); 
-const portNumber = Number(process.argv[2]);
+const portNumber = process.env.PORT || 3000;;
 const fs = require("fs");
 process.stdin.setEncoding("utf8");
 const bodyParser = require("body-parser");
