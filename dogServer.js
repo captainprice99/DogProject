@@ -11,38 +11,8 @@ app.use(express.static(__dirname));
 const router = express.Router();
 app.use("/", router);
 
-
-
-
 const breeds =["Labrador","German Shepherd","Pug","Husky","Beagle","Bulldog","Golden Retriever"];
 
-
-// app.listen(Number(process.argv[2]));
-
-// if (process.argv.length != 3) {
-//   process.stdout.write(`Usage dogServer.js portNumber`);
-//   process.exit(0);
-// }
-
-
-// process.stdout.write(`Web server started and running at http://localhost:${portNumber} \n`);
-// const prompt = "Stop to shutdown the server: ";
-// process.stdout.write(prompt);
-// process.stdin.on("readable", function () {
-//   const dataInput = process.stdin.read();
-//   if (dataInput !== null) {
-//     const command = dataInput.trim();
-    //   if(command === "stop") {
-    //   // process.stdout.write("Shutting down the server\n");
-    //   process.exit(0);
-    // } else 
-    // {
-    //   process.stdout.write("Invalid command: " + command + "\n");
-    // }
-    // process.stdout.write(prompt);
-    // process.stdin.resume();
-//   }
-// });
 app.listen(portNumber, () => {
     console.log(`Web server started and running at http://localhost:${portNumber}`);
 });
@@ -95,9 +65,6 @@ app.post("/dogVoting", async (req, res) => {
 app.get("/dogTable", async (req, res) => {
   const allDogs=await collection.find({}).toArray();
   const table =allDogs.map(d => `<tr><td>${d.breed}</td><td>${d.votes || 0}</td></tr>`).join("");
-  // const filter = {};
-  // cursor = collection.find(filter);
-  // result = await cursor.toArray();
   res.render("ProcessVotingPage", { table });
 
 });
